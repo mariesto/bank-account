@@ -40,7 +40,7 @@ public class AccountEventStore implements EventStore {
     }
 
     @Override
-    public List<BaseEvent> getEvent(String aggregateId) {
+    public List<BaseEvent> getEvents(String aggregateId) {
         List<EventModel> eventStream = eventStoreRepository.findByAggregateIdentifier(aggregateId);
         if (CollectionUtils.isEmpty(eventStream)){
             throw new AggregateNotFoundException("Incorrect account ID provided");
